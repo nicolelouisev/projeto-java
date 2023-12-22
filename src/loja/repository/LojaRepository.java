@@ -13,9 +13,6 @@ public interface LojaRepository {
     public void apagar(int numero);
     
     // CRUD COMPRA
-    public void listarTodas();
-    public void buscarPorNumero(int numero);
     public void adicionar(Compra compra);
-    public void atualizar(Compra compra);
 
 }
