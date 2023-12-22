@@ -33,7 +33,7 @@ public class Menu {
 		 try {
 				opcao = leia.nextInt();
 			} catch(InputMismatchException e) {
-				System.out.println("\nDigeite valores inteiros!");
+				System.out.println("\nDigite valores inteiros!");
 				leia.nextLine();
 				opcao=0;
 			}
