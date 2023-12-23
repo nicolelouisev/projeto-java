@@ -9,9 +9,10 @@ public class Compra {
     private String cliente;
     private List<Produto> produtos;
     private double total;
+    private static int numeroCompraAtual = 1;
     
-    public Compra(int numeroCompra, String cliente) {
-        this.numeroCompra = numeroCompra;
+    public Compra(String cliente) {
+        this.numeroCompra = gerarNumero();
         this.cliente = cliente;
         this.produtos = new ArrayList<>();
         this.total = 0.0;
@@ -50,7 +51,9 @@ public class Compra {
 	}
 	
 	public void exibirDetalhes() {
-        System.out.println("Detalhes da Compra:");
+		System.out.println("\n\n***********************************************************");
+		System.out.println("Detalhes da Compra:");
+		System.out.println("***********************************************************");
         System.out.println("Número da Compra: " + numeroCompra);
         System.out.println("Cliente: " + cliente);
         System.out.println("Produtos:");
@@ -60,6 +63,10 @@ public class Compra {
         }
 
         System.out.println("Total: R$ " + total);
+    }
+	
+    private int gerarNumero() {
+        return numeroCompraAtual++;
     }
     
     

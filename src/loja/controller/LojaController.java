@@ -61,11 +61,20 @@ public class LojaController implements LojaRepository {
 		
 	}
 
+	
 	@Override
-	public void adicionar(Compra compra) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void criarCompra(Compra compra, int numero) {
+        var produto = buscarNaCollection(numero);
+
+        if (produto != null) {
+            compra.getProdutos().add(produto);
+            compra.setTotal(compra.getTotal() + produto.getPreco());
+            System.out.println("Produto adicionado à compra!");
+        } else {
+            System.out.println("Produto não encontrado!");
+        }
+    }
+
 	
 	public int gerarNumero() {
 		return ++ numero;

@@ -13,6 +13,5 @@ public interface LojaRepository {
     public void apagar(int numero);
     
     // CRUD COMPRA
-    public void adicionar(Compra compra);
-
+    public void criarCompra(Compra compra, int numero);
 }

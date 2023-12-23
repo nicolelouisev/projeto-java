@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import loja.controller.LojaController;
+import loja.model.Compra;
 import loja.model.ProdutoEletronico;
 
 public class Menu {
@@ -68,6 +69,26 @@ public class Menu {
 			switch(opcao) {
 				case 1:
 					System.out.println("Comprar\n\n");
+				    System.out.println("Digite seu nome: ");
+				    leia.skip("\\R?");
+				    String cliente = leia.nextLine();
+
+				    Compra compraAtual = new Compra(cliente);
+
+				    char continuarCompra;
+
+				    do {
+				        System.out.println("Digite o código do produto que deseja comprar (1 a 3): ");
+				        numero = leia.nextInt();
+
+				        produtos.criarCompra(compraAtual, numero);
+
+				        System.out.println("Deseja adicionar mais produtos à compra? (S/N): ");
+				        continuarCompra = leia.next().charAt(0);
+
+				    } while (continuarCompra == 'S' || continuarCompra == 's');
+
+				    compraAtual.exibirDetalhes();
 					
 					keyPress();
 					break;
